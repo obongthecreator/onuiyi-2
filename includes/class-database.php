@@ -245,22 +245,6 @@ class Stand120_Database {
             KEY reconcile_date (reconcile_date)
         ) $charset_collate;";
         dbDelta($sql_reconciliation);
-        
-        // Clock-in table
-        $table_clock_in = $wpdb->prefix . 'stand120_clock_in';
-        $sql_clock_in = "CREATE TABLE $table_clock_in (
-            id mediumint(9) NOT NULL AUTO_INCREMENT,
-            staff_id mediumint(9) NOT NULL,
-            clock_date date NOT NULL,
-            clock_time time NOT NULL,
-            device_ip varchar(45) DEFAULT '',
-            device_build varchar(100) DEFAULT '',
-            created_at datetime DEFAULT CURRENT_TIMESTAMP,
-            PRIMARY KEY (id),
-            UNIQUE KEY staff_date (staff_id, clock_date),
-            KEY clock_date (clock_date)
-        ) $charset_collate;";
-        dbDelta($sql_clock_in);
     }
     
     /**

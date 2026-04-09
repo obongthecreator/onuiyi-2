@@ -72,9 +72,6 @@ $current_page = get_query_var('stand120_page');
             <a href="<?php echo home_url('/120-stand/product-summary/'); ?>" class="stand120-nav-link <?php echo $current_page === 'product-summary' ? 'active' : ''; ?>">
                 <i class="fas fa-chart-bar"></i> Summary
             </a>
-            <a href="<?php echo home_url('/120-stand/clock-in/'); ?>" class="stand120-nav-link <?php echo $current_page === 'clock-in' ? 'active' : ''; ?>">
-                <i class="fas fa-clock"></i> Clock In
-            </a>
             <?php if ($is_admin): ?>
             <a href="<?php echo home_url('/120-stand/admin-panel/'); ?>" class="stand120-nav-link <?php echo $current_page === 'admin-panel' ? 'active' : ''; ?>">
                 <i class="fas fa-cog"></i> Admin
@@ -133,9 +130,6 @@ $current_page = get_query_var('stand120_page');
             <a href="<?php echo home_url('/120-stand/profile/'); ?>" class="mobile-nav-link <?php echo $current_page === 'profile' ? 'active' : ''; ?>">
                 <i class="fas fa-user"></i> Profile
             </a>
-            <a href="<?php echo home_url('/120-stand/clock-in/'); ?>" class="mobile-nav-link <?php echo $current_page === 'clock-in' ? 'active' : ''; ?>">
-                <i class="fas fa-clock"></i> Clock In
-            </a>
             <?php if ($is_admin): ?>
             <a href="<?php echo home_url('/120-stand/admin-panel/'); ?>" class="mobile-nav-link <?php echo $current_page === 'admin-panel' ? 'active' : ''; ?>">
                 <i class="fas fa-cog"></i> Admin Panel
@@ -145,9 +139,6 @@ $current_page = get_query_var('stand120_page');
             </a>
             <a href="<?php echo home_url('/120-stand/reconciliation/'); ?>" class="mobile-nav-link <?php echo $current_page === 'reconciliation' ? 'active' : ''; ?>">
                 <i class="fas fa-calendar-check"></i> Reconciliation
-            </a>
-            <a href="<?php echo home_url('/120-stand/clock-in-history/'); ?>" class="mobile-nav-link <?php echo $current_page === 'clock-in-history' ? 'active' : ''; ?>">
-                <i class="fas fa-user-clock"></i> Clock-In History
             </a>
             <?php endif; ?>
             <a href="<?php echo wp_logout_url(home_url('/120-stand/login/')); ?>" class="mobile-nav-link">

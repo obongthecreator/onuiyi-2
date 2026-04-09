@@ -3,7 +3,7 @@
  * Plugin Name: 120 Stand Inventory Management
  * Plugin URI: https://120stand.com
  * Description: A comprehensive inventory management system for 120 Stand fruit salad business with offline capability, real-time sync, and beautiful glassmorphism UI.
- * Version: 1.3.0
+ * Version: 1.4.0
  * Author: 120 Stand
  * Author URI: https://120stand.com
  * License: GPL v2 or later
@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Define plugin constants
-define('STAND120_VERSION', '1.3.0');
+define('STAND120_VERSION', '1.4.0');
 define('STAND120_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('STAND120_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('STAND120_PLUGIN_BASENAME', plugin_basename(__FILE__));
@@ -83,7 +83,6 @@ class Stand120_Inventory {
         require_once STAND120_PLUGIN_DIR . 'includes/class-expense-record.php';
         require_once STAND120_PLUGIN_DIR . 'includes/class-admin-panel.php';
         require_once STAND120_PLUGIN_DIR . 'includes/class-reconciliation.php';
-        require_once STAND120_PLUGIN_DIR . 'includes/class-clock-in.php';
     }
     
     /**
@@ -122,7 +121,7 @@ class Stand120_Inventory {
     public function init() {
         load_plugin_textdomain('120-stand-inventory', false, dirname(STAND120_PLUGIN_BASENAME) . '/languages');
         
-        // Auto-flush rewrite rules when plugin version changes (ensures new routes like clock-in work)
+        // Auto-flush rewrite rules when plugin version changes
         $stored_version = get_option('stand120_plugin_version', '0');
         if ($stored_version !== STAND120_VERSION) {
             Stand120_Database::create_tables();
@@ -156,8 +155,6 @@ class Stand120_Inventory {
         add_rewrite_rule('^120-stand/profile/?$', 'index.php?stand120_page=profile', 'top');
         add_rewrite_rule('^120-stand/analytics/?$', 'index.php?stand120_page=analytics', 'top');
         add_rewrite_rule('^120-stand/reconciliation/?$', 'index.php?stand120_page=reconciliation', 'top');
-        add_rewrite_rule('^120-stand/clock-in/?$', 'index.php?stand120_page=clock-in', 'top');
-        add_rewrite_rule('^120-stand/clock-in-history/?$', 'index.php?stand120_page=clock-in-history', 'top');
     }
     
     /**
@@ -196,13 +193,7 @@ class Stand120_Inventory {
             exit;
         }
         
-        // Check admin access for clock-in history
-        if ($page === 'clock-in-history' && !Stand120_Auth::is_admin()) {
-            wp_redirect(home_url('/120-stand/'));
-            exit;
-        }
-        
-        $template_file = STAND120_PLUGIN_DIR . 'templates/' . $page . '.php';
+        $template_file= STAND120_PLUGIN_DIR . 'templates/' . $page . '.php';
         
         if (file_exists($template_file)) {
             // Prevent browser from caching plugin pages so users always get
