@@ -10,13 +10,14 @@ if (!defined('ABSPATH')) {
 
 class Stand120_Ajax_Handler {
     
-    private const NONCE_EXEMPT_ACTIONS = array('login', 'check_login_status');
-
     /**
      * Actions that do not require nonce validation.
+     * Using static property instead of class const for PHP 7.0 compatibility.
      */
+    private static $nonce_exempt_actions = array('login', 'check_login_status');
+
     private static function is_nonce_exempt_action($action) {
-        return in_array($action, self::NONCE_EXEMPT_ACTIONS, true);
+        return in_array($action, self::$nonce_exempt_actions, true);
     }
 
     /**
