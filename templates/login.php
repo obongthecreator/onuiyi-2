@@ -95,11 +95,13 @@ if (Stand120_Auth::is_logged_in()) {
     <script src="<?php echo STAND120_PLUGIN_URL; ?>assets/js/main.js?v=<?php echo STAND120_VERSION; ?>"></script>
     
     <script>
+    (function($) {
         $(document).ready(function() {
             if (typeof Login !== 'undefined') {
                 Login.init();
             }
         });
+    })(jQuery);
     </script>
     
     <?php wp_footer(); ?>

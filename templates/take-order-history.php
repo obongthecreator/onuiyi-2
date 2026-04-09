@@ -81,6 +81,7 @@ include STAND120_PLUGIN_DIR . 'templates/partials/header.php';
 </div>
 
 <script>
+(function($) {
     let currentPage = 1;
     const perPage = 20;
     const isAdmin = <?php echo $is_admin ? 'true' : 'false'; ?>;
@@ -219,6 +220,7 @@ include STAND120_PLUGIN_DIR . 'templates/partials/header.php';
         $('#prevPage').prop('disabled', data.page <= 1);
         $('#nextPage').prop('disabled', data.page >= data.total_pages);
     }
+})(jQuery);
 </script>
 
 <?php include STAND120_PLUGIN_DIR . 'templates/partials/footer.php'; ?>

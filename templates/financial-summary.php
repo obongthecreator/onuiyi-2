@@ -170,6 +170,7 @@ include STAND120_PLUGIN_DIR . 'templates/partials/header.php';
 </div>
 
 <script>
+(function($) {
     $(document).ready(function() {
         if (typeof FinancialSummary !== 'undefined') {
             FinancialSummary.init();
@@ -180,6 +181,7 @@ include STAND120_PLUGIN_DIR . 'templates/partials/header.php';
             });
         }
     });
+})(jQuery);
 </script>
 
 <?php include STAND120_PLUGIN_DIR . 'templates/partials/footer.php'; ?>

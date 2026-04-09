@@ -262,11 +262,13 @@ include STAND120_PLUGIN_DIR . 'templates/partials/header.php';
 </style>
 
 <script>
+(function($) {
 $(document).ready(function() {
     if (typeof ReconciliationCalendar !== 'undefined') {
         ReconciliationCalendar.init();
     }
 });
+})(jQuery);
 </script>
 
 <?php include STAND120_PLUGIN_DIR . 'templates/partials/footer.php'; ?>

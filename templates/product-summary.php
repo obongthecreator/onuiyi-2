@@ -124,11 +124,13 @@ include STAND120_PLUGIN_DIR . 'templates/partials/header.php';
 </div>
 
 <script>
+(function($) {
     $(document).ready(function() {
         if (typeof ProductSummary !== 'undefined') {
             ProductSummary.init();
         }
     });
+})(jQuery);
 </script>
 
 <?php include STAND120_PLUGIN_DIR . 'templates/partials/footer.php'; ?>

@@ -463,6 +463,7 @@ include STAND120_PLUGIN_DIR . 'templates/partials/header.php';
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 <script>
+(function($) {
     let revenueDistChart = null;
     let topProductsPieChart = null;
     let dailySalesTrendChart = null;
@@ -1102,6 +1103,7 @@ include STAND120_PLUGIN_DIR . 'templates/partials/header.php';
             }
         });
     }
+})(jQuery);
 </script>
 
 <?php include STAND120_PLUGIN_DIR . 'templates/partials/footer.php'; ?>

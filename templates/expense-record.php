@@ -96,6 +96,7 @@ include STAND120_PLUGIN_DIR . 'templates/partials/header.php';
 </div>
 
 <script>
+(function($) {
     $(document).ready(function() {
         if (typeof MarketExpense !== 'undefined') {
             MarketExpense.init();
@@ -106,6 +107,7 @@ include STAND120_PLUGIN_DIR . 'templates/partials/header.php';
             });
         }
     });
+})(jQuery);
 </script>
 
 <?php include STAND120_PLUGIN_DIR . 'templates/partials/footer.php'; ?>

@@ -385,11 +385,13 @@ include STAND120_PLUGIN_DIR . 'templates/partials/header.php';
 <?php endif; ?>
 
 <script>
+(function($) {
     $(document).ready(function() {
         if (typeof AdminPanel !== 'undefined') {
             AdminPanel.init();
         }
     });
+})(jQuery);
 </script>
 
 <?php include STAND120_PLUGIN_DIR . 'templates/partials/footer.php'; ?>

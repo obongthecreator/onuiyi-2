@@ -66,6 +66,7 @@ include STAND120_PLUGIN_DIR . 'templates/partials/header.php';
 </div>
 
 <script>
+(function($) {
     let currentPage = 1;
     
     $(document).ready(function() {
@@ -109,6 +110,7 @@ include STAND120_PLUGIN_DIR . 'templates/partials/header.php';
             }
         });
     }
+})(jQuery);
 </script>
 
 <?php include STAND120_PLUGIN_DIR . 'templates/partials/footer.php'; ?>

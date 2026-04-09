@@ -105,6 +105,7 @@ include STAND120_PLUGIN_DIR . 'templates/partials/header.php';
 </style>
 
 <script>
+(function($) {
     $(document).ready(function() {
         if (typeof ImportRecord !== 'undefined') {
             ImportRecord.init();
@@ -115,6 +116,7 @@ include STAND120_PLUGIN_DIR . 'templates/partials/header.php';
             });
         }
     });
+})(jQuery);
 </script>
 
 <?php include STAND120_PLUGIN_DIR . 'templates/partials/footer.php'; ?>
