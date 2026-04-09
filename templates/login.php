@@ -21,6 +21,11 @@ if (Stand120_Auth::is_logged_in()) {
     <meta name="theme-color" content="#8B0000">
     <title>Login - 120 Stand Inventory</title>
     
+    <!-- Prevent browser from caching pages -->
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
     <!-- Preconnect to fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

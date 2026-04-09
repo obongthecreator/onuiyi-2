@@ -3,7 +3,7 @@
  * Plugin Name: 120 Stand Inventory Management
  * Plugin URI: https://120stand.com
  * Description: A comprehensive inventory management system for 120 Stand fruit salad business with offline capability, real-time sync, and beautiful glassmorphism UI.
- * Version: 1.2.0
+ * Version: 1.3.0
  * Author: 120 Stand
  * Author URI: https://120stand.com
  * License: GPL v2 or later
@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Define plugin constants
-define('STAND120_VERSION', '1.2.0');
+define('STAND120_VERSION', '1.3.0');
 define('STAND120_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('STAND120_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('STAND120_PLUGIN_BASENAME', plugin_basename(__FILE__));
@@ -205,6 +205,12 @@ class Stand120_Inventory {
         $template_file = STAND120_PLUGIN_DIR . 'templates/' . $page . '.php';
         
         if (file_exists($template_file)) {
+            // Prevent browser from caching plugin pages so users always get
+            // fresh content without needing a hard refresh.
+            header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+            header('Pragma: no-cache');
+            header('Expires: 0');
+
             include $template_file;
             exit;
         }

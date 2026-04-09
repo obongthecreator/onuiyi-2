@@ -21,6 +21,11 @@ $current_page = get_query_var('stand120_page');
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title><?php echo $page_title ?? '120 Stand Inventory'; ?></title>
     
+    <!-- Prevent browser from caching pages -->
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
     <!-- Manifest for PWA -->
     <link rel="manifest" href="<?php echo STAND120_PLUGIN_URL; ?>manifest.json">
     

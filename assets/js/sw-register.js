@@ -6,7 +6,7 @@ if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
         var swUrl = stand120_ajax.plugin_url + 'assets/js/sw.js';
 
-        navigator.serviceWorker.register(swUrl)
+        navigator.serviceWorker.register(swUrl, { updateViaCache: 'none' })
             .then(function(registration) {
                 // Check for updates on every page load
                 registration.update();
