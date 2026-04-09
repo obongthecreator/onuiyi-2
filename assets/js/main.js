@@ -590,9 +590,17 @@
 })(jQuery);
 
 /**
+ * All page modules are wrapped in a jQuery closure so that $ remains
+ * available even if WordPress's bundled jQuery calls jQuery.noConflict().
+ * Each module is attached to window so inline template scripts can
+ * reference them by name (e.g. TakeOrder.init()).
+ */
+;(function($) {
+
+/**
  * Take Order Module
  */
-const TakeOrder = {
+window.TakeOrder = {
     items: [],
     isSubmitting: false,
     
@@ -856,7 +864,7 @@ const TakeOrder = {
 /**
  * Order Preparation Module
  */
-const OrderPreparation = {
+window.OrderPreparation = {
     data: [],
     
     init: function() {
@@ -972,7 +980,7 @@ const OrderPreparation = {
 /**
  * Stock Inventory Module
  */
-const StockInventory = {
+window.StockInventory = {
     data: [],
     
     init: function() {
@@ -1085,7 +1093,7 @@ const StockInventory = {
 /**
  * Chopping Inventory Module
  */
-const ChoppingInventory = {
+window.ChoppingInventory = {
     data: [],
     
     init: function() {
@@ -1205,7 +1213,7 @@ const ChoppingInventory = {
 /**
  * Import Record Module
  */
-const ImportRecord = {
+window.ImportRecord = {
     data: [],
     
     init: function() {
@@ -1295,7 +1303,7 @@ const ImportRecord = {
 /**
  * Market Expense Module
  */
-const MarketExpense = {
+window.MarketExpense = {
     items: [],
     
     init: function() {
@@ -1451,7 +1459,7 @@ const MarketExpense = {
 /**
  * Financial Summary Module
  */
-const FinancialSummary = {
+window.FinancialSummary = {
     data: {},
     saveTimeout: null,
     
@@ -1589,7 +1597,7 @@ const FinancialSummary = {
 /**
  * Product Summary Module
  */
-const ProductSummary = {
+window.ProductSummary = {
     init: function() {
         this.bindEvents();
         this.loadData();
@@ -1643,7 +1651,7 @@ const ProductSummary = {
 /**
  * Admin Panel Module
  */
-const AdminPanel = {
+window.AdminPanel = {
     init: function() {
         this.bindEvents();
         this.loadData();
@@ -2232,7 +2240,7 @@ const AdminPanel = {
 /**
  * Login Module
  */
-const Login = {
+window.Login = {
     fallbackDelay: 200,
     init: function() {
         this.bindEvents();
@@ -2293,7 +2301,7 @@ const Login = {
 /**
  * Reconciliation Calendar Module
  */
-const ReconciliationCalendar = {
+window.ReconciliationCalendar = {
     currentYear: new Date().getFullYear(),
     currentMonth: new Date().getMonth(),
     statusData: {},
@@ -2505,3 +2513,5 @@ const ReconciliationCalendar = {
         this.selectedDate = null;
     }
 };
+
+})(jQuery);

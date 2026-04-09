@@ -5,7 +5,7 @@
  */
 
 // Cache version - update this when deploying new versions
-const CACHE_VERSION = '1.6.0';
+const CACHE_VERSION = '1.7.0';
 const CACHE_NAME = 'stand120-v' + CACHE_VERSION;
 
 // Files to pre-cache (minimal set — HTML is always network-first)

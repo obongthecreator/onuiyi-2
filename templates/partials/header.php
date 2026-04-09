@@ -37,6 +37,9 @@ $current_page = get_query_var('stand120_page');
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Iconify (required for <iconify-icon> elements used across all templates) -->
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.3.0/dist/iconify-icon.min.js"></script>
+    
     <!-- Plugin Styles -->
     <link rel="stylesheet" href="<?php echo STAND120_PLUGIN_URL; ?>assets/css/style.css?v=<?php echo STAND120_VERSION; ?>">
     
