@@ -48,6 +48,24 @@ class Stand120_Auth {
     }
     
     /**
+     * Check if user is a super admin (WordPress multisite super admin or single-site admin)
+     */
+    public static function is_super_admin() {
+        if (!is_user_logged_in()) {
+            return false;
+        }
+        
+        // In multisite, use WordPress's built-in check
+        if (function_exists('is_super_admin') && is_super_admin()) {
+            return true;
+        }
+        
+        // In single site, treat administrators as super admins
+        $user = wp_get_current_user();
+        return in_array('administrator', (array) $user->roles);
+    }
+    
+    /**
      * Check if user is admin
      */
     public static function is_admin() {
